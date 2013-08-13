@@ -10,6 +10,8 @@ namespace webd\language;
  */
 
 /**
+ * http://tartarus.org/martin/PorterStemmer/
+ * 
  * PHP5 Implementation of the Porter Stemmer algorithm. Certain elements
  * were borrowed from the (broken) implementation by Jon Abernathy.
  *

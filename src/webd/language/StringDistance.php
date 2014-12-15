@@ -3,44 +3,17 @@
 namespace webd\language;
 
 class StringDistance {
-    /*
-      http://www.iugrina.com/files/JaroWinkler/JaroWinkler.phps
-     
-      version 1.3
 
-      Copyright (c) 2005-2013  Ivo Ugrina <ivo@iugrina.com>
-
-      A PHP library implementing Jaro and Jaro-Winkler
-      distance, measuring similarity between strings.
-
-      Theoretical stuff can be found in:
-      Winkler, W. E. (1999). "The state of record linkage and current
-      research problems". Statistics of Income Division, Internal Revenue
-      Service Publication R99/04. http://www.census.gov/srd/papers/pdf/rr99-04.pdf.
-
-
-      This program is free software; you can redistribute it and/or modify
-      it under the terms of the GNU General Public License as published by
-      the Free Software Foundation; either version 3 of the License, or (at
-      your option) any later version.
-
-      This program is distributed in the hope that it will be useful, but
-      WITHOUT ANY WARRANTY; without even the implied warranty of
-      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-      General Public License for more details.
-
-      You should have received a copy of the GNU General Public License
-      along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-      ===
-
-      A big thanks goes out to Pierre Senellart <pierre@senellart.com>
-      for finding a small bug in the code. Also, thanks goes out to
-      Debabrata Kar <debakjr@gmail.com> for help in transition to
-      PHP 5.4+.
-
+    /**
+     * The higher the Jaro–Winkler distance for two strings is, the more 
+     * similar the strings are. The Jaro–Winkler distance metric is designed 
+     * and best suited for short strings such as person names. The score is 
+     * normalized such that 0 equates to no similarity and 1 is an exact match.
+     * 
+     * @param type $string1
+     * @param type $string2
+     * @return int
      */
-    
     public static function Jaro($string1, $string2) {
 
         $str1_len = strlen($string1);
@@ -53,22 +26,27 @@ class StringDistance {
         $commons1 = self::getCommonCharacters($string1, $string2, $distance);
         $commons2 = self::getCommonCharacters($string2, $string1, $distance);
 
-        if (($commons1_len = strlen($commons1)) == 0)
+        if (($commons1_len = strlen($commons1)) == 0) {
             return 0;
-        if (($commons2_len = strlen($commons2)) == 0)
+        }
+        
+        if (($commons2_len = strlen($commons2)) == 0) {
             return 0;
+        }
 
         // calculate transpositions
         $transpositions = 0;
         $upperBound = min($commons1_len, $commons2_len);
         for ($i = 0; $i < $upperBound; $i++) {
-            if ($commons1[$i] != $commons2[$i])
+            if ($commons1[$i] != $commons2[$i]) {
                 $transpositions++;
+            }
         }
         $transpositions /= 2.0;
 
         // return the Jaro distance
-        return ($commons1_len / ($str1_len) + $commons2_len / ($str2_len) + ($commons1_len - $transpositions) / ($commons1_len)) / 3.0;
+        return ($commons1_len / ($str1_len) + $commons2_len / ($str2_len) + 
+                ($commons1_len - $transpositions) / ($commons1_len)) / 3.0;
     }
     
     public static function JaroWinkler($string1, $string2, $PREFIXSCALE = 0.1) {
@@ -121,10 +99,24 @@ class StringDistance {
         return $n;
     }
     
+    /**
+     * Returns the minimum number of single-character edits 
+     * (i.e. insertions, deletions or substitutions) required to change one 
+     * word into the other
+     * @param type $string1
+     * @param type $string2
+     * @return type
+     */
     public static function Levenshtein($string1, $string2) {
         return levenshtein($string1, $string2);
     }
     
+    /**
+     * Levenshtein($string1, $string2)
+     * @param type $string1
+     * @param type $string2
+     * @return type
+     */
     public static function EditDistance($string1, $string2) {
         return self::Levenshtein($string1, $string2);
     }

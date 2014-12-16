@@ -1,12 +1,10 @@
 php-language-processing
 =======================
 
-A PHP library for language processing. Includes string distance function (Levenshtein, Jaro-Winkler,...), stemming, etc.
+A PHP library for language processing. Includes string distance function (Levenshtein, Jaro-Winkler, LCS-distance...), stemming, etc.
 
-Installation
-------------
-
-Using composer :
+Installation using Composer
+---------------------------
 
 in composer.json :
 ```
@@ -38,4 +36,9 @@ use webd\language\PorterStemmer;
 echo "analyzing => " . PorterStemmer::Stem("analyzing");
 echo "abandoned => " . PorterStemmer::Stem("abandoned");
 echo "inclination => " . PorterStemmer::Stem("inclination");
+
+$lcs = new \webd\language\LCS($str1, $str2);
+echo $lcs->value();
+echo $lcs->length();
+echo $lcs->distance();
 ```

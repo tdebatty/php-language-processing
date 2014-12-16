@@ -36,14 +36,30 @@ class SpamSum
   protected $left;
   protected $right;
   
+  /**
+   * Set a different hash length
+   * min = 1, default = 64
+   * 
+   * @param type $l
+   */
   public function SetHashLength($l) {
       $this->SPAMSUM_LENGTH = $l;
   }
   
+  /**
+   * Set the number of letters to use to create the hash
+   * min = 2, max = 64, default = 64 (base64)
+   * @param type $l
+   */
   public function SetLetters($l) {
       $this->LETTERS = $l;
   }
   
+  /**
+   * Manually set the minimum block size
+   * min = 1, default = 3
+   * @param type $s
+   */
   public function SetMinBlocksize($s) {
       $this->MIN_BLOCKSIZE = $s;
   }

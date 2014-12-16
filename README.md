@@ -41,4 +41,8 @@ $lcs = new \webd\language\LCS($str1, $str2);
 echo $lcs->value();
 echo $lcs->length();
 echo $lcs->distance();
+
+// SpamSum, aka ssdeep, aka Context-Triggered Piecewize Hashing (CTPH):
+$s = new \webd\language\SpamSum;
+echo $s->HashString(file_get_contents($f));
 ```

@@ -1,7 +1,8 @@
 php-language-processing
 =======================
 
-A PHP library for language processing. Includes string distance function (Levenshtein, Jaro-Winkler, LCS-distance...), stemming, etc.
+A PHP library for language processing. Includes string distance function 
+(Levenshtein, Jaro-Winkler, LCS-distance...), stemming, hashing etc.
 
 Installation using Composer
 ---------------------------

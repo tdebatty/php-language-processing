@@ -28,9 +28,10 @@ class SpamSum
   const B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
   
   protected $SPAMSUM_LENGTH = 64;
-  protected $MIN_BLOCKSIZE = 3;
   protected $LETTERS = 64;
   protected $BLOCKSIZE = 0;
+  protected $MIN_BLOCKSIZE = 3;
+  protected $auto_blocksize = true;
   
   protected $left;
   protected $right;
@@ -45,6 +46,16 @@ class SpamSum
   
   public function SetMinBlocksize($s) {
       $this->MIN_BLOCKSIZE = $s;
+  }
+  
+  /**
+   * Set the blok size manually, so that it won't be computed from the length of
+   * the string
+   * @param type $s
+   */
+  public function SetBlockSize($s) {
+      $this->BLOCKSIZE = $s;
+      $this->auto_blocksize = false;
   }
   
   /**
@@ -65,7 +76,7 @@ class SpamSum
     unset($in[count($in)]);
 
     // Guess a a reasonable block size
-    if ($this->BLOCKSIZE == 0) {
+    if ($this->auto_blocksize) {
       $this->BLOCKSIZE = $this->MIN_BLOCKSIZE;
       
       while ($this->BLOCKSIZE * $this->SPAMSUM_LENGTH < $length) {
@@ -135,8 +146,9 @@ class SpamSum
 
     /* Our blocksize guess may have been way off - repeat if necessary
      */
-    if ($this->BLOCKSIZE > $this->MIN_BLOCKSIZE
-        && $j < $this->SPAMSUM_LENGTH / 2) {
+    if ($this->auto_blocksize
+            && $this->BLOCKSIZE > $this->MIN_BLOCKSIZE
+            && $j < $this->SPAMSUM_LENGTH / 2) {
         
       $this->BLOCKSIZE = $this->BLOCKSIZE / 2;
       goto again;

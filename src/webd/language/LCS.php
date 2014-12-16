@@ -3,7 +3,7 @@
 namespace webd\language;
 
 /**
- * The longest common subsequence (LCS) problem is the problem of finding the 
+ * The longest common subsequence (LCS) problem consists in finding the 
  * longest subsequence common to two (or more) sequences. It differs from 
  * problems of finding common substrings: unlike substrings, subsequences are 
  * not required to occupy consecutive positions within the original sequences. 

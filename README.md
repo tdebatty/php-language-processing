@@ -3,6 +3,23 @@ php-language-processing
 
 A PHP library for language processing. Includes string distance function (Levenshtein, Jaro-Winkler,...), stemming, etc.
 
+Installation
+------------
+
+Using composer :
+
+in composer.json :
+```
+"require": {
+    "webd/language": "dev-master"
+}
+```
+
+Then
+```
+composer install
+```
+
 Usage
 -----
 

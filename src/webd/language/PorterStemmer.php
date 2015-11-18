@@ -19,7 +19,6 @@ namespace webd\language;
  *
  *  $stem = PorterStemmer::Stem($word);
  *
- * How easy is that?
  */
 class PorterStemmer {
 

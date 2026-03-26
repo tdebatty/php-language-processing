@@ -1,7 +1,9 @@
 # php-language-processing
 
-[![Latest Stable Version](https://poser.pugx.org/webd/language/v/stable)](https://packagist.org/packages/webd/language)
-[![Total Downloads](https://poser.pugx.org/webd/language/downloads)](https://packagist.org/packages/webd/language)
+![GitHub Workflows](https://github.com/tdebatty/php-language-processing/workflows/tests/badge.svg)
+![Packagist Version](https://img.shields.io/packagist/v/webd/language)
+![Packagist Downloads](https://img.shields.io/packagist/dt/webd/language)
+
 
 A PHP library for language processing. Includes string distance function 
 (Levenshtein, Jaro-Winkler, LCS-distance...), stemming, hashing etc.

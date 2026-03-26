@@ -14,7 +14,7 @@ class SpamSum
    * min blocksize = 3
    * block size computed automatically
    *
-   * @param type $string
+   * @param string $string
    * @return \webd\language\SpamSum
    */
     public static function Hash($string)
@@ -41,7 +41,7 @@ class SpamSum
    * Set a different hash length
    * min = 1, default = 64
    *
-   * @param type $l
+   * @param int $l
    */
     public function SetHashLength($l)
     {
@@ -51,7 +51,7 @@ class SpamSum
   /**
    * Set the number of letters to use to create the hash
    * min = 2, max = 64, default = 64 (base64)
-   * @param type $l
+   * @param int $l
    */
     public function SetLetters($l)
     {
@@ -61,7 +61,7 @@ class SpamSum
   /**
    * Manually set the minimum block size
    * min = 1, default = 3
-   * @param type $s
+   * @param int $s
    */
     public function SetMinBlocksize($s)
     {
@@ -71,7 +71,7 @@ class SpamSum
   /**
    * Set the blok size manually, so that it won't be computed from the length of
    * the string
-   * @param type $s
+   * @param int $s
    */
     public function SetBlockSize($s)
     {
@@ -81,7 +81,7 @@ class SpamSum
   
   /**
    *
-   * @param type $string
+   * @param string $string
    * @return \webd\language\SpamSum
    */
     public function HashString($string)

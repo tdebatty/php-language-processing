@@ -1,27 +1,20 @@
 # php-language-processing
 
-[![Latest Stable Version](https://poser.pugx.org/webd/language/v/stable)](https://packagist.org/packages/webd/language) [![Total Downloads](https://poser.pugx.org/webd/language/downloads)](https://packagist.org/packages/webd/language)
+[![Latest Stable Version](https://poser.pugx.org/webd/language/v/stable)](https://packagist.org/packages/webd/language)
+[![Total Downloads](https://poser.pugx.org/webd/language/downloads)](https://packagist.org/packages/webd/language)
 
 A PHP library for language processing. Includes string distance function 
 (Levenshtein, Jaro-Winkler, LCS-distance...), stemming, hashing etc.
 
-Installation using Composer
----------------------------
+## Installation
 
-in composer.json :
-```
-"require": {
-    "webd/language": "dev-master"
-}
+```bash
+composer require webd/language
 ```
 
-Then
-```
-composer install
-```
 
-Usage
------
+
+## Usage
 
 ```php
 use webd\language\StringDistance;

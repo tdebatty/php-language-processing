@@ -3,5 +3,15 @@
     "description":  "A library for language processing. Includes string distance function (Levenshtein, Jaro-Winkler,...), stemming, etc.",
     "autoload": {
         "psr-0": {"": "src/"}
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^4.0",
+        "slevomat/coding-standard": "^8.28",
+        "phpunit/phpunit": "^13.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }

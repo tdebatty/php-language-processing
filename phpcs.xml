@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+    <description>The coding standard for our project.</description>
+    <rule ref="PSR2"/>
+
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- Show progression -->
+    <arg value="p"/>
+    
+    <!-- Add rules from slevomat 
+    https://cylab.be/blog/169/detect-unnecessary-use-statements-with-php-codesniffer -->
+    <config name="installed_paths" value="../../slevomat/coding-standard"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
+</ruleset>

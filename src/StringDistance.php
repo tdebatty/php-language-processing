@@ -11,9 +11,9 @@ class StringDistance
      * and best suited for short strings such as person names. The score is
      * normalized such that 0 equates to no similarity and 1 is an exact match.
      *
-     * @param type $string1
-     * @param type $string2
-     * @return int
+     * @param string $string1
+     * @param string $string2
+     * @return float
      */
     public static function Jaro($string1, $string2)
     {
@@ -96,9 +96,9 @@ class StringDistance
      * Returns the minimum number of single-character edits
      * (i.e. insertions, deletions or substitutions) required to change one
      * word into the other
-     * @param type $string1
-     * @param type $string2
-     * @return type
+     * @param string $string1
+     * @param string $string2
+     * @return int
      */
     public static function Levenshtein($string1, $string2)
     {
@@ -107,9 +107,9 @@ class StringDistance
     
     /**
      * Levenshtein($string1, $string2)
-     * @param type $string1
-     * @param type $string2
-     * @return type
+     * @param string $string1
+     * @param string $string2
+     * @return int
      */
     public static function EditDistance($string1, $string2)
     {

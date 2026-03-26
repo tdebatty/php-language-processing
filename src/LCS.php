@@ -71,8 +71,6 @@ class LCS
      * Edit distance when only insertion and deletion is allowed (no
      * substitution)
      * = strlen(str1) + strlen(str2) - 2 * length(LCS(str1, str2))
-     * @param type $string1
-     * @param type $string2
      */
     public function distance()
     {

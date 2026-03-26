@@ -8,7 +8,7 @@ class StringDistanceTest extends TestCase
 {
 
     /**
-     * @var Distance
+     * @var StringDistance
      */
     protected $object;
 
@@ -24,7 +24,6 @@ class StringDistanceTest extends TestCase
 
     /**
      * @covers webd\language\Distance::Jaro
-     * @todo   Implement testJaro().
      */
     public function testJaro()
     {
@@ -33,7 +32,6 @@ class StringDistanceTest extends TestCase
 
     /**
      * @covers webd\language\Distance::JaroWinkler
-     * @todo   Implement testJaroWinkler().
      */
     public function testJaroWinkler()
     {

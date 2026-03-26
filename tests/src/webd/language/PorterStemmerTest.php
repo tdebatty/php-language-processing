@@ -27,6 +27,6 @@ class PorterStemmerTest extends TestCase
      */
     public function testStem()
     {
-        $this->assertEquals(PorterStemmer::Stem("caresses"), "caress");
+        $this->assertEquals(PorterStemmer::stem("caresses"), "caress");
     }
 }

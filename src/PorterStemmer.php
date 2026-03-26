@@ -41,7 +41,7 @@ class PorterStemmer
      * @param  string $word Word to stem
      * @return string       Stemmed word
      */
-    public static function Stem($word)
+    public static function stem($word)
     {
         if (strlen($word) <= 2) {
             return $word;
@@ -64,7 +64,8 @@ class PorterStemmer
     {
         // Part a
         if (substr($word, -1) == 's') {
-            self::replace($word, 'sses', 'ss') or self::replace($word, 'ies', 'i') or self::replace($word, 'ss', 'ss') or self::replace($word, 's', '');
+            self::replace($word, 'sses', 'ss') or self::replace($word, 'ies', 'i') or self::replace($word, 'ss', 'ss')
+                    or self::replace($word, 's', '');
         }
 
         // Part b
@@ -72,11 +73,15 @@ class PorterStemmer
             $v = self::$regex_vowel;
 
             // ing and ed
-            if (preg_match("#$v+#", substr($word, 0, -3)) && self::replace($word, 'ing', '') or preg_match("#$v+#", substr($word, 0, -2)) && self::replace($word, 'ed', '')) { // Note use of && and OR, for precedence reasons
+            if (preg_match("#$v+#", substr($word, 0, -3)) && self::replace($word, 'ing', '')
+                    or preg_match("#$v+#", substr($word, 0, -2)) && self::replace($word, 'ed', '')) {
+                    // Note use of && and OR, for precedence reasons
                 // If one of above two test successful
-                if (!self::replace($word, 'at', 'ate') and !self::replace($word, 'bl', 'ble') and !self::replace($word, 'iz', 'ize')) {
+                if (!self::replace($word, 'at', 'ate') and !self::replace($word, 'bl', 'ble')
+                        and !self::replace($word, 'iz', 'ize')) {
                     // Double consonant ending
-                    if (self::doubleConsonant($word) and substr($word, -2) != 'll' and substr($word, -2) != 'ss' and substr($word, -2) != 'zz') {
+                    if (self::doubleConsonant($word) and substr($word, -2) != 'll' and substr($word, -2) != 'ss'
+                            and substr($word, -2) != 'zz') {
                         $word = substr($word, 0, -1);
                     } elseif (self::m($word) == 1 and self::cvc($word)) {
                         $word .= 'e';
@@ -129,19 +134,24 @@ class PorterStemmer
                 break;
 
             case 'l':
-                self::replace($word, 'entli', 'ent', 0) or self::replace($word, 'ousli', 'ous', 0) or self::replace($word, 'alli', 'al', 0) or self::replace($word, 'bli', 'ble', 0) or self::replace($word, 'eli', 'e', 0);
+                self::replace($word, 'entli', 'ent', 0) or self::replace($word, 'ousli', 'ous', 0)
+                    or self::replace($word, 'alli', 'al', 0) or self::replace($word, 'bli', 'ble', 0)
+                    or self::replace($word, 'eli', 'e', 0);
                 break;
 
             case 'o':
-                self::replace($word, 'ization', 'ize', 0) or self::replace($word, 'ation', 'ate', 0) or self::replace($word, 'ator', 'ate', 0);
+                self::replace($word, 'ization', 'ize', 0) or self::replace($word, 'ation', 'ate', 0)
+                    or self::replace($word, 'ator', 'ate', 0);
                 break;
 
             case 's':
-                self::replace($word, 'iveness', 'ive', 0) or self::replace($word, 'fulness', 'ful', 0) or self::replace($word, 'ousness', 'ous', 0) or self::replace($word, 'alism', 'al', 0);
+                self::replace($word, 'iveness', 'ive', 0) or self::replace($word, 'fulness', 'ful', 0)
+                    or self::replace($word, 'ousness', 'ous', 0) or self::replace($word, 'alism', 'al', 0);
                 break;
 
             case 't':
-                self::replace($word, 'biliti', 'ble', 0) or self::replace($word, 'aliti', 'al', 0) or self::replace($word, 'iviti', 'ive', 0);
+                self::replace($word, 'biliti', 'ble', 0) or self::replace($word, 'aliti', 'al', 0)
+                    or self::replace($word, 'iviti', 'ive', 0);
                 break;
         }
 
@@ -213,7 +223,8 @@ class PorterStemmer
                 break;
 
             case 'n':
-                self::replace($word, 'ant', '', 1) or self::replace($word, 'ement', '', 1) or self::replace($word, 'ment', '', 1) or self::replace($word, 'ent', '', 1);
+                self::replace($word, 'ant', '', 1) or self::replace($word, 'ement', '', 1)
+                    or self::replace($word, 'ment', '', 1) or self::replace($word, 'ent', '', 1);
                 break;
 
             case 'o':

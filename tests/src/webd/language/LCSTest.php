@@ -44,12 +44,4 @@ class LCSTest extends TestCase
     {
         $this->assertEquals($this->object->distance(), 2);
     }
-
-    /**
-     * @covers webd\language\LCS::__toString
-     * @todo   Implement test__toString().
-     */
-    public function test__toString()
-    {
-    }
 }

@@ -15,7 +15,7 @@ class StringDistance
      * @param string $string2
      * @return float
      */
-    public static function Jaro($string1, $string2)
+    public static function jaro($string1, $string2)
     {
 
         $str1_len = strlen($string1);
@@ -51,10 +51,10 @@ class StringDistance
                 ($commons1_len - $transpositions) / ($commons1_len)) / 3.0;
     }
     
-    public static function JaroWinkler($string1, $string2, $PREFIXSCALE = 0.1)
+    public static function jaroWinkler($string1, $string2, $PREFIXSCALE = 0.1)
     {
 
-        $JaroDistance = self::Jaro($string1, $string2);
+        $JaroDistance = self::jaro($string1, $string2);
         $prefixLength = self::getPrefixLength($string1, $string2);
         return $JaroDistance + $prefixLength * $PREFIXSCALE * (1.0 - $JaroDistance);
     }
@@ -100,7 +100,7 @@ class StringDistance
      * @param string $string2
      * @return int
      */
-    public static function Levenshtein($string1, $string2)
+    public static function levenshtein($string1, $string2)
     {
         return levenshtein($string1, $string2);
     }
@@ -111,8 +111,8 @@ class StringDistance
      * @param string $string2
      * @return int
      */
-    public static function EditDistance($string1, $string2)
+    public static function editDistance($string1, $string2)
     {
-        return self::Levenshtein($string1, $string2);
+        return self::levenshtein($string1, $string2);
     }
 }

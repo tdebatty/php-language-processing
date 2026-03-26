@@ -27,7 +27,7 @@ class StringDistanceTest extends TestCase
      */
     public function testJaro()
     {
-        $this->assertEqualsWithDelta(0.944, StringDistance::Jaro("MARTHA", "MARHTA"), 0.001, "");
+        $this->assertEqualsWithDelta(0.944, StringDistance::jaro("MARTHA", "MARHTA"), 0.001, "");
     }
 
     /**
@@ -35,11 +35,11 @@ class StringDistanceTest extends TestCase
      */
     public function testJaroWinkler()
     {
-        $this->assertEqualsWithDelta(0.961, StringDistance::JaroWinkler("MARTHA", "MARHTA", 0.1), 0.001, "");
+        $this->assertEqualsWithDelta(0.961, StringDistance::jaroWinkler("MARTHA", "MARHTA", 0.1), 0.001, "");
     }
     
     public function testLevenshtein()
     {
-        $this->assertEquals(6, StringDistance::Levenshtein("bordure", "contexte"));
+        $this->assertEquals(6, StringDistance::levenshtein("bordure", "contexte"));
     }
 }

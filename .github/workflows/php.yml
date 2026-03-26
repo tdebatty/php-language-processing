@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: cylab/php:8.3
+      image: cylab/php:8.4
       
     steps:
     - uses: actions/checkout@v4

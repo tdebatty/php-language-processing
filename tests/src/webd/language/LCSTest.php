@@ -4,7 +4,6 @@ namespace webd\language;
 
 use PHPUnit\Framework\TestCase;
 
-
 class LCSTest extends TestCase
 {
 

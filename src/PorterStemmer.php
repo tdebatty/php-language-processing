@@ -355,7 +355,7 @@ class PorterStemmer
         $c = self::$regex_consonant;
         $v = self::$regex_vowel;
 
-        return preg_match("#($c$v$c)$#", $str, $matches) && (strlen($matches[1]) == 3) && 
+        return preg_match("#($c$v$c)$#", $str, $matches) && (strlen($matches[1]) == 3) &&
                 ($matches[1][2] != 'w') && ($matches[1][2] != 'x') && ($matches[1][2] != 'y');
     }
 }

@@ -1,24 +1,7 @@
-# php-language-processing
+<?php
 
-![GitHub Workflows](https://github.com/tdebatty/php-language-processing/workflows/tests/badge.svg)
-![Packagist Version](https://img.shields.io/packagist/v/webd/language)
-![Packagist Downloads](https://img.shields.io/packagist/dt/webd/language)
+require __DIR__ . "/../vendor/autoload.php";
 
-
-A PHP library for language processing. Includes string distance function 
-(Levenshtein, Jaro-Winkler, LCS-distance...), stemming, hashing etc.
-
-## Installation
-
-```bash
-composer require webd/language
-```
-
-
-
-## Usage
-
-```php
 use webd\language\StringDistance;
 
 $string1 = "You won 10000$";
@@ -37,6 +20,7 @@ echo "Jaro-Winkler : " . StringDistance::jaroWinkler($string1, $string2) . "\n";
 echo "Jaro-Winkler (prefix scale = 0.2) : " . StringDistance::jaroWinkler($string1, $string2, 0.2) . "\n";
 
 use webd\language\PorterStemmer;
+
 // analyz
 echo "analyzing => " . PorterStemmer::stem("analyzing") . "\n";
 
@@ -60,4 +44,3 @@ echo $lcs->distance() . "\n";
 $s = new \webd\language\SpamSum;
 // 192:x+cMdRiWqk2YODjCoG4OU88/ffcQ+lsCYDIlp6+TF244htoJFUjw:krovCLA9byp6+52jhtnjw
 echo $s->HashString(file_get_contents(__DIR__ . "/SpamSum.php")) . "\n";
-```

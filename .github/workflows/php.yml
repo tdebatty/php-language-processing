@@ -36,3 +36,6 @@ jobs:
 
     - name: Run phpunit
       run: ./vendor/bin/phpunit
+      
+    - name: Run phpstan
+      run: ./vendor/bin/phpstan
